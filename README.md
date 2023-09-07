@@ -3,19 +3,36 @@ This workchain demonstrates the power of AiiDA in orchestrating and managing com
 
 ## Workflow
 
-The workflow calculates atomic properties of and relaxes the materials. It consists of six parts:
+* `Part 1 - System Creation`
+  
+  In the first step, this workchain creates a material system using specific rules and parameters. It defines the atomic structure and other relevant properties required for subsequent calculations. This step ensures the setup of a consistent input for Quantum Espresso calculations.
 
- 1. **Structure builder** - It creates a material system with specific rules.
+* `Part 2 - Symmetry Equivalence Check`
+  
+  The second step checks for symmetric equivalence between the newly created material system and previously computed systems. This check is essential to prevent redundant calculations and ensure that identical results are not repeated unnecessarily. It leverages symmetry information to identify equivalences.
 
- 2. **Symmetry equivalence check** - This task computes a symmetry equivalence check between the new system and the previously calculated configuration to avoid repeating the same results.
+* `Part 3 - Atomic Calculation with Quantum Espresso`
+  
+  Upon confirming the absence of symmetrically equivalent systems, the workchain proceeds with the execution of atomic calculations using the Quantum Espresso plugin. It performs electronic structure calculations, optimizing the system's atomic positions and obtaining relevant properties like energy and forces.
 
- 3. **Computing procedure**: An atomic calculation task (e.g. scf, relax, vc-relax) applyed on the new system using Quantum Espresso (v.6.7).
+* `Part 4 - Results Formatting to JSON`
+  
+  Following the atomic calculations, the fourth step adapts the obtained results into a structured JSON format. This format makes it easier to handle and share the data, enabling further analysis and visualization of the calculated properties.
 
- 4. **Adapter** - This task receives the previously calculated results and convertes them into a new format (e.g. json format).
+* `Part 5 - External Database Storage`
+  
+  In the final step, the workchain stores the adapted results into an external database separate from the AiiDA infrastructure, such as MongoDB. This step ensures data persistence and allows for easy retrieval and integration of the calculated atomic properties into other applications or systems.
 
- 5. **Property addition** - This task computes additional atomic properties (e.g. formation energy, redox potential) added into results.
+* `Overall Workflow`
+  
+  The Quantum Espresso Atomic Calculation Workchain is designed to automate and streamline the process of performing atomic calculations for materials. It begins by defining the material system, checks for symmetry equivalence to avoid redundancy, executes Quantum Espresso calculations, formats the results into JSON, and finally stores the results in an external database. This workflow ensures the efficient and organized handling of atomic calculations, making them accessible for further analysis and integration into external systems.
 
- 6. **Store data** - It stores the results in a MongoDB istance as a json document.
+* `Use Cases`
+
+    - Materials science research
+    - Computational chemistry
+    - Electronic structure calculations
+    - High-throughput materials screening
 
 
 ## **How to install**
