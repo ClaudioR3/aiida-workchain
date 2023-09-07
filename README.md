@@ -24,7 +24,6 @@ The workflow calculates atomic properties of and relaxes the materials. It consi
 
 ```bash
     git clone https://gitlab.brindisi.enea.it/claudio.ronchetti/ai4mat.git
-    cd computing # Enter in AiiDA workflow folder
 ```
 
  2. Set MongoDB authentication user and password in the `mongodb.properties` properties file. The user **MUST HAVE** the writing permits.
