@@ -1,0 +1,55 @@
+{
+    "parameters": {
+        "CONTROL": {
+            "calculation": "vc-relax",
+            "restart_mode": "from_scratch",
+            "nstep":100,
+            "verbosity": "low",
+            "wf_collect": true,
+            "tstress": true,
+            "tprnfor": true,
+            "max_seconds": 83000,
+            "disk_io": "low"
+        },
+        "SYSTEM": {
+            "ibrav" : 0,
+            "ecutwfc": 80,
+            "ecutrho": 640,
+            "input_DFT": "pbe",
+            "occupations" : "smearing",
+            "degauss" : 0.01,
+            "smearing" : "marzari-vanderbilt",
+            "nspin":2,                                            
+            "starting_magnetization(1)": 0.5,
+            "lda_plus_u" : true,
+            "hubbard_u":{
+                "Mn": 3.94, 
+                "Ni": 6.53,
+                "Ti": 3.22
+            }
+        },
+        "ELECTRONS": {
+            "conv_thr": 1.0e-6,
+            "electron_maxstep" : 500,
+            "mixing_mode" : "plain",
+            "mixing_beta" : 0.5e0
+        },
+        "IONS":{},
+        "CELL":{}
+    },
+    "kpoints" : {
+        "mesh": [4,8,4],
+        "offset": [0, 0, 0]
+    },
+    "metadata":{
+        "options":{
+            "resources" : {"tot_num_mpiprocs": 576},
+            "queue_name" : "cresco6_48h24",
+            "prepend_text" : "module unload intel/intel17 mpi_flavour/openmpi_intel17-3.1.2 \nmodule load intel/intel19 mpi_flavour/impi-intel19"
+        }
+    },
+    "parallelization" :{"npool": 24},
+    "codename" : "qe_6.7_pw@cresco6s",
+    "rules": ["manganese_replacement", "all_sodium_removing"],
+    "manganese_replacement_step": 2
+}
