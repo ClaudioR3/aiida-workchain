@@ -43,13 +43,12 @@
     },
     "metadata":{
         "options":{
-            "resources" : {"tot_num_mpiprocs": 576},
-            "queue_name" : "cresco6_48h24",
-            "prepend_text" : "module unload intel/intel17 mpi_flavour/openmpi_intel17-3.1.2 \nmodule load intel/intel19 mpi_flavour/impi-intel19"
+            "resources" : {"tot_num_mpiprocs": 48},
+            "queue_name" : <queue>
         }
     },
     "parallelization" :{"npool": 24},
-    "codename" : "qe_6.7_pw@cresco6s",
+    "codename" : <code>@<computer>,
     "rules": ["manganese_replacement", "all_sodium_removing"],
     "manganese_replacement_step": 2
 }
