@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/688465745.svg)](https://zenodo.org/badge/latestdoi/688465745)
+
 # AiiDA Workchain
 This workchain demonstrates the power of AiiDA in orchestrating and managing complex workflows for atomic calculations, offering a systematic and efficient approach to materials research and computational chemistry tasks.
 
